@@ -1,14 +1,17 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-using namespace std;
 #include "funciones.h"
 
-///// MEN� //////
+using namespace std;
+
+
+///// MEN├Ü //////
 int seleccionarOpcion() {
     int opcion;
 
     do {
+            system("cls");
         cout << endl;
         cout << "**********************************" << endl;
          cout << endl;
@@ -38,6 +41,8 @@ int seleccionarOpcion() {
             return opcion;
         }
 
+
+
     } while (true);
 }
 
@@ -50,10 +55,10 @@ void ejecutarOpcion(int opcion) {
             partidaMultiplayer();
             break;
         case 3:
-            mostrarEstadistica();
+            estadisticaGeneral();
             break;
         case 4:
-            cout << "Aca van los creditos" << endl;
+            creditos();
             break;
         case 5:
             cout << "Gracias por jugar!!!" << endl;
@@ -62,6 +67,7 @@ void ejecutarOpcion(int opcion) {
             cout << "Elija una opcion valida: " << endl;
             break;
     }
-}
+    }
 
-///// FINALIZA MEN� //////
+///// FINALIZA MEN├Ü //////
+
