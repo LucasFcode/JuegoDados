@@ -255,8 +255,8 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
 
     cout << "*********************************************"<<endl;
 
-    cout<<"Los puntos de "<<nombreJugador1<<" son::  "<<puntosGanador1<<endl<<endl;
-    cout<<"Los puntos de "<<nombreJugador2<<" son:: "<<puntosGanador2<<endl<<endl;
+    cout<<"Puntos de "<<nombreJugador1<<" :  "<<puntosGanador1<<endl<<endl;
+    cout<<"Puntos de "<<nombreJugador2<<" : "<<puntosGanador2<<endl<<endl;
 
      cout << "*********************************************"<<endl;
 
