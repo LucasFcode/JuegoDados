@@ -4,7 +4,7 @@
 using namespace std;
 #include "funciones.h"
 
-///// MENÚ //////
+///// MENï¿½ //////
 int seleccionarOpcion() {
     int opcion;
 
@@ -50,7 +50,7 @@ void ejecutarOpcion(int opcion) {
             partidaMultiplayer();
             break;
         case 3:
-            cout << "Aca van las estadisticas" << endl;
+            mostrarEstadistica();
             break;
         case 4:
             cout << "Aca van los creditos" << endl;
@@ -64,4 +64,4 @@ void ejecutarOpcion(int opcion) {
     }
 }
 
-///// FINALIZA MENÚ //////
+///// FINALIZA MENï¿½ //////
