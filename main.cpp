@@ -14,8 +14,9 @@ int main()
         cout << "1. Un Jugador :(" << endl;
         cout << "2. Dos Jugadores :)" << endl;
         cout << "3. Estadisticas" << endl;
+        cout << "4. Creditos" << endl;
         cout << "4. Salir" << endl;
-        cout << "Elija una opci¢n: ";
+        cout << "Elija una opciÂ¢n: ";
         cin >> opcion;
 
         switch (opcion) {
