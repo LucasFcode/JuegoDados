@@ -1,22 +1,58 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-using namespace std;
+#include <cstdio>
 #include "funciones.h"
 
-// TIRADA DE DADOS
-    int tirarDados()
-    {
+
+using namespace std;
+
+
+// funcion para tirar los dados
+
+
+
+bool dadosIguales(int valorDados[], int numDados) { // FUNCI├ôN PARA LOS DADOS IGUALES
+
+    int dadoRef = valorDados[0]; // dadoRef guarda el valor del 1er dado
+    int contadorIguales = 0;
+
+        if (numDados == 1) {
+        return false;  //  Caso por si hay un solo dado
+    }
+
+    for (int i = 0; i < numDados; i++) {
+        if (dadoRef == valorDados[i]) {
+            contadorIguales++;
+        }
+    }
+
+    // Si todos los dados son iguales
+    return contadorIguales == numDados;
+}
+
+
+    int tirarDados(){
     return rand ()%6+1;
     }
+
+
+
     int puntajeTotalJugador=0;
+    int tiradatotal=0;
 
 
 
 
 /// tira primer jugador
+
+
 int tiradaUnJugador(int bloqueador1, int bloqueador2){
 
+
+
+        int mostrarbloqueradores=bloqueador1;
+        int mostrarbloqueradores22=bloqueador2;
         int i,respuesta,j;
         int sumarRondas;
         bool sigue=true;
@@ -27,90 +63,127 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
 
 
 
-//// PARA MANEJAR LAS TIRADAS Y LOS DESCUENTOS DE DADOS
-
-while (dadosXJugar>0 && sigue==true) {
-
-        int dadospBloquear = 0;
-        int puntajeTirada = 0;
-
-        cout << "TIRADA: " << tiradaRonda + 1 << endl
-             << endl
-             << endl;
-
-        /// HACEMOS EL FOR PARA CONTROLAR EL PUNTAJE DE LAS TIRADAS Y BLOQUEAR
-        for (j = 0; j < dadosXJugar; j++)
-        {
-            int dadosTirada1 = 0;
-            dadosTirada1 = tirarDados();
-
-                     cout<<"NUMERO DE DADO: "<<dadosTirada1<<endl;
-
-                      if (dadosTirada1==bloqueador1||dadosTirada1==bloqueador2) {
-                      dadospBloquear++; /// contamos los dados que vamos bloqueando
-                       }
-                       else {
-                        puntajeTirada=puntajeTirada+dadosTirada1; // Sumamos puntaje de la tirada
-                       }
-
-                }
-
-        dadosXJugar = dadosXJugar - dadospBloquear;
-        puntajeRonda = puntajeRonda + puntajeTirada;
-
-        cout << "DADOS QUE TE QUEDAN: " << dadosXJugar << endl;
-        cout << "EL PUNTAJE DE LA TIRADA ES :  " << puntajeTirada << endl;
-        cout << "EL PUNTAJE DE LA RONDA ES: " << puntajeRonda << endl;
+                  //// PARA MANEJAR LAS TIRADAS Y LOS DESCUENTOS DE DADOS
 
 
-            if (dadosXJugar>0) {
-                   cout << "QUERES SEGUIR JUGANDO? Digita 1 para continuar: " << endl;
-                cin >> respuesta;
-                  }
-                if(respuesta == 1){
-                    sigue=true;
-                  }
-                    
-              else {
-                sigue=false;
-                }
+    while (dadosXJugar>0 && sigue==true) {
 
-        if (dadosXJugar <= 0)
-        {
-            cout << "TE QUEDASTE SIN DADOS!" << endl;
-            dadosXJugar = 0;
+
+
+
+
+     int dadospBloquear=0;
+     int puntajeTirada=0;
+
+
+
+                      cout<<"TIRADA: "<<tiradaRonda+1<<endl<<endl<<endl;
+
+                      cout<<" NO TE OLVIDES!!! TUS BLOQUEADORES SON :"<<endl;
+                      cout<<mostrarbloqueradores<<" Y "<<mostrarbloqueradores22<<endl<<endl;
+
+                      /// HACEMOS EL FOR PARA CONTROLAR EL PUNTAJE DE LAS TIRADAS Y BLOQUEAR
+
+
+                      int dados[5];
+                      // HACEMOS EL FOR PARA CONTROLAR EL PUNTAJE DE LAS TIRADAS Y BLOQUEAR
+           for (j = 0; j < dadosXJugar; j++) {
+           dados[j] = tirarDados();  // Almacenamos el valor del dado en el arreglo
+
+         cout << "NUMERO DE DADO: " << dados[j] << endl;
+
+         if (dados[j] == bloqueador1 || dados[j] == bloqueador2) {
+            dadospBloquear++;
+         } else {
+            puntajeTirada += dados[j];
         }
+    }
+
+    // Verificamos si todos los dados son iguales
+    if (dadosIguales(dados, dadosXJugar)) {
+        cout << "┬íTodos los dados son iguales! Tu puntaje se duplica." << endl;
+        puntajeTirada *= 2;
+        cout << "Nuevo puntaje de la tirada: " << puntajeTirada << endl;
+        sigue = true;
+    }
+
+                  dadosXJugar = dadosXJugar-dadospBloquear;
+                  puntajeRonda=puntajeRonda+puntajeTirada;
+
+                cout<<"DADOS QUE TE QUEDAN: " <<dadosXJugar<<endl;
+                cout<<"EL PUNTAJE DE LA TIRADA ES :  "<<puntajeTirada<<endl;
+                cout<<"EL PUNTAJE DE LA RONDA ES: "<<puntajeRonda<<endl;
+
+
+                 if (dadosXJugar>0) {
+                    cout<<" QUERES SERGUIR JUGANDO, digita 1? "<<endl;
+                    cin>>respuesta;
+                    }
+
+                   if (respuesta==1) {
+                  sigue=true;
+                    }
+                   else {
+                  sigue=false;
+                  }
+
+                if (dadosXJugar<=0 ) {
+                    cout<<"TE QUEDASTE SIN DADOS!"<<endl;
+                    dadosXJugar=0;
+
+
+
+                    }
 
                 tiradaRonda++;
+                tiradatotal++;
                 system("cls");
 
      }
                     sumarRondas=puntajeRonda;
                     puntajeTotalJugador= puntajeTotalJugador+sumarRondas;
-                    cout<<"PUNTAJE TOTAL ACUMULADO= "<<puntajeTotalJugador<<endl;
+                    cout<<"PUNTAJE TOTAL ACUMULADO DE RONDAS= "<<puntajeTotalJugador<<endl;
 
-    return puntajeTotalJugador;
+                   return puntajeTotalJugador;
+
+
+
+     }
+
+///GUARDAR PUNTOS PARA ESTADISTICA
+
+
+     void estadisticaunJugador (){
+
+
+     cout<<"Tus puntos fueron "<<puntajeTotalJugador<<"  Felicitaciones!!!"<<endl;
+     cout<<"En total de tiradas "<<tiradatotal<<endl;
+     system("pause");
+
+
 }
 
-////-----------------------------------------saludar
+
+
+///saludar
 
 
 void saludar(string nombreJugador){
       cout<<endl;
-      cout <<" Hola, "<< nombreJugador <<" que tengas buena suerte!!  "<<endl;
+      cout <<" Hola "<< nombreJugador <<" que tengas buena suerte "<<endl;
 
-    cout << "---------------------------------------" << endl;
+      cout <<"---------------------------------------"<<endl;
 }
 
-void modo_unjugador(string nombreJugador)
-{
-    saludar(nombreJugador);
-}
 
-///----------------------------------------- funcion
+void modo_unjugador (string nombreJugador){
+    saludar(nombreJugador);}
 
-void partidaUnJugador()
-{
+
+
+ ///----------------------------------------- funcion
+
+    void partidaUnJugador(){
 
     string nombreJugador;
 
@@ -118,50 +191,53 @@ void partidaUnJugador()
 
 
     cout <<"Indicanos tu nombre Player1: "<<endl;
-    cout <<"---------------------------------------"<<endl;
     cin >> nombreJugador;
+
 
     modo_unjugador(nombreJugador);
 
-    int rondas = 3;
-    int bloqueador1, bloqueador2;
+int rondas = 3;
+int bloqueador1, bloqueador2;
 
-    cout << " TUS BLOQUEADORES SON : " << endl;
 
-    bloqueador1 = tirarDados();
-    cout << "   " << bloqueador1 << endl;
-    bloqueador2 = tirarDados();
-    cout << "   " << bloqueador2 << endl;
-    cout << " ----------------------------------------" << endl;
+        bloqueador1=tirarDados();
 
-    for (int i = 0; i < rondas; i++)
-    {
+        bloqueador2=tirarDados();
+        cout<< " TUS BLOQUEADORES SON : "<<endl;
+        cout<< "   "<<bloqueador1<<endl;
+        cout<< "   "<< bloqueador2<<endl;
+    cout << " ----------------------------------------"<<endl;
 
-        cout << "\nRonda " << i + 1 << endl
-             << endl;
-        cout << " ------------------------------------------" << endl;
 
-        puntosJugador = tiradaUnJugador(bloqueador1, bloqueador2);
 
-        cout << endl
-             << endl;
+for (int i = 0; i < rondas; i++) {
+
+
+
+    cout << "\nRonda " << i + 1 << endl<<endl;
+    cout << " ------------------------------------------"<<endl;
+
+
+    puntosJugador=tiradaUnJugador (bloqueador1, bloqueador2);
+
+
+
+
+    cout<<endl<<endl;
+
+
     }
 
-    cout << "*********************************************" << endl;
 
-    cout << "BUEN JUEGO  " << nombreJugador << "!!!!" << " TUS PUNTOS SON :: " << puntosJugador << endl
-         << endl;
+    cout << "*********************************************"<<endl;
+
+    cout<<"BUEN JUEGO  "<<nombreJugador<< "!!!!"<<" TUS PUNTOS SON :: "<<puntosJugador<<endl<<endl;
 
      cout << "*********************************************"<<endl;
-        system("pause");
 
-
+system("pause");
     }
-string cadenaEstadistica;
 
-void guardarEstadistica(string nombreJugador1, string nombreJugador2, int puntosGanador1, int puntosGanador2) {
-    cadenaEstadistica = "Estadisticas del jugador " + nombreJugador1 + ": " + to_string(puntosGanador1) + "\n";
-    cadenaEstadistica += "Estadisticas del jugador " + nombreJugador2 + ": " + to_string(puntosGanador2);
-}
+
 
 
