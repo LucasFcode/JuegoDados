@@ -82,6 +82,7 @@ while (dadosXJugar>0 && sigue==true) {
                     }
 
                 tiradaRonda++;
+                system("cls");
 
      }
                     sumarRondas=puntajeRonda;
@@ -164,6 +165,7 @@ int bloqueador1, bloqueador2;
     cout<<"BUEN JUEGO  "<<nombreJugador<< "!!!!"<<" TUS PUNTOS SON :: "<<puntosJugador<<endl<<endl;
 
      cout << "*********************************************"<<endl;
+        system("pause");
 
 
     }
