@@ -64,8 +64,11 @@ while (dadosXJugar>0 && sigue==true) {
             if (dadosXJugar>0) {
                    cout << "QUERES SEGUIR JUGANDO? Digita 1 para continuar: " << endl;
                 cin >> respuesta;
-                sigue = (respuesta == 1);
-                }
+                  }
+                if(respuesta == 1){
+                    sigue=true;
+                  }
+                    
               else {
                 sigue=false;
                 }
