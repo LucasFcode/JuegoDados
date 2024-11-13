@@ -1,22 +1,14 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "rlutil.h"
 using namespace std;
 #include "funciones.h"
-// funcion para tirar los dados
 
-
-
-    int tirarDados(){
+// TIRADA DE DADOS
+    int tirarDados()
+    {
     return rand ()%6+1;
     }
-
-
-
-
-
-
     int puntajeTotalJugador=0;
 
 
@@ -24,8 +16,6 @@ using namespace std;
 
 /// tira primer jugador
 int tiradaUnJugador(int bloqueador1, int bloqueador2){
-
-
 
         int i,respuesta,j;
         int sumarRondas;
@@ -36,10 +26,10 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
         int tiradaRonda=0;
 
 
-                  //// PARA MANEJAR LAS TIRADAS Y LOS DESCUENTOS DE DADOS
 
+//// PARA MANEJAR LAS TIRADAS Y LOS DESCUENTOS DE DADOS
 
-    while (dadosXJugar>0 && sigue==true) {
+while (dadosXJugar>0 && sigue==true) {
 
      int dadospBloquear=0;
      int puntajeTirada=0;
@@ -52,13 +42,13 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
                       int dadosTirada1=0;
                       dadosTirada1=tirarDados();
 
-                     cout<<"Nø DE DADO: "<<dadosTirada1<<endl;
+                     cout<<"NUMERO DE DADO: "<<dadosTirada1<<endl;
 
                       if (dadosTirada1==bloqueador1||dadosTirada1==bloqueador2) {
                       dadospBloquear++; /// contamos los dados que vamos bloqueando
                        }
                        else {
-                        puntajeTirada=puntajeTirada+dadosTirada1;
+                        puntajeTirada=puntajeTirada+dadosTirada1; // Sumamos puntaje de la tirada
                        }
 
                 }
@@ -71,12 +61,10 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
                 cout<<"EL PUNTAJE DE LA RONDA ES: "<<puntajeRonda<<endl;
 
 
-                if (dadosXJugar>0) {
-                    cout<<" QUERES SERGUIR JUGANDO, digita 1? "<<endl;
-                cin>>respuesta;
-                }
-                if (respuesta==1) {
-                 sigue=true;
+            if (dadosXJugar>0) {
+                   cout << "QUERES SEGUIR JUGANDO? Digita 1 para continuar: " << endl;
+                cin >> respuesta;
+                sigue = (respuesta == 1);
                 }
               else {
                 sigue=false;
@@ -109,7 +97,7 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
 
 void saludar(string nombreJugador){
       cout<<endl;
-      cout <<" Hola "<< nombreJugador <<" que tengas buena suerte "<<endl;
+      cout <<" Hola, "<< nombreJugador <<" que tengas buena suerte!!  "<<endl;
 
       cout <<"---------------------------------------"<<endl;
 }
@@ -131,6 +119,7 @@ void modo_unjugador (string nombreJugador){
 
 
     cout <<"Indicanos tu nombre Player1: "<<endl;
+    cout <<"---------------------------------------"<<endl;
     cin >> nombreJugador;
 
 

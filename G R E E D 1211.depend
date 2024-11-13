@@ -23,3 +23,36 @@
 	<ctime>
 	"funciones.h"
 
+1731525587 source:c:\repos tp\definitivo\juegodados\funciones.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"funciones.h"
+
+1731521034 c:\repos tp\definitivo\juegodados\funciones.h
+	<string>
+
+1731520984 source:c:\repos tp\definitivo\juegodados\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"funciones.h"
+
+1731517694 source:c:\repos tp\definitivo\juegodados\modomultijugador.cpp
+	<iostream>
+	"funciones.h"
+	<fstream>
+	<time.h>
+
+1731521458 source:c:\repos tp\definitivo\juegodados\menu.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"funciones.h"
+
+1731524673 source:c:\repos tp\definitivo\juegodados\menu1.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"funciones.h"
+
