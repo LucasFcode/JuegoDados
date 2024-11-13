@@ -10,6 +10,7 @@ void ejecutarOpcion(int opcion);
 int main() {
     srand(time(0));
     int opcion;
+
     do {
         system("cls");
 
