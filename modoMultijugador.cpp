@@ -47,7 +47,7 @@ int tiradaPlayer1(int bloqueador1, int bloqueador2){
                       int dadosTirada=0;
                       dadosTirada=tirarDados();
 
-                     cout<<"Nø DE DADO: "<<dadosTirada<<endl;
+                     cout<<"NÃ¸ DE DADO: "<<dadosTirada<<endl;
 
                       if (dadosTirada==bloqueador1||dadosTirada==bloqueador2) {
                       dadospBloquear++; /// contamos los dados que vamos bloqueando
@@ -132,7 +132,7 @@ int tiradaPlayer2 (int bloqueador2_1, int bloqueador2_2){
                       int dadosTirada=0;
                       dadosTirada=tirarDados();
 
-                     cout<<"Nø DE DADO: "<<dadosTirada<<endl;
+                     cout<<"NÃ¸ DE DADO: "<<dadosTirada<<endl;
 
                       if (dadosTirada==bloqueador2_1||dadosTirada==bloqueador2_2) {
                       dadospBloquear++; /// contamos los dados que vamos bloqueando
@@ -210,9 +210,9 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
         cout<< " LOS BLOQUEADORES DE "<<nombreJugador1<< " SON: "<<endl;
 
         bloqueador1=tirarDados();
-        cout<< " EL 1ø :  "<<bloqueador1<<endl;
+        cout<< " EL 1Ã¸ :  "<<bloqueador1<<endl;
          bloqueador2=tirarDados();
-        cout<< " EL 2ø:  "<< bloqueador2<<endl;
+        cout<< " EL 2Ã¸:  "<< bloqueador2<<endl;
 
     cout <<"Indicanos tu nombre Player2: "<<endl;
     cin >>nombreJugador2;
@@ -222,9 +222,9 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
     cout<< " LOS BLOQUEADORES DE "<<nombreJugador2<< " SON: "<<endl;
 
     bloqueador2_1=tirarDados();
-        cout<< " EL 1ø ES:  "<<bloqueador2_1<<endl;
+        cout<< " EL 1Ã¸ ES:  "<<bloqueador2_1<<endl;
     bloqueador2_2=tirarDados();
-        cout<< " EL 2ø ES:  "<<bloqueador2_2<<endl;
+        cout<< " EL 2Ã¸ ES:  "<<bloqueador2_2<<endl;
 
 
     for (int i = 0; i < rondas; i++) {
@@ -255,8 +255,8 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
 
     cout << "*********************************************"<<endl;
 
-    cout<<"puntos ganador 1  :"<<nombreJugador1<<"  "<<puntosGanador1<<endl<<endl;
-    cout<<"puntos ganador 2  :"<<nombreJugador2<<"  "<<puntosGanador2<<endl<<endl;
+    cout<<"Los puntos de :"<<nombreJugador1<<" son::  "<<puntosGanador1<<endl<<endl;
+    cout<<"Los puntos de :"<<nombreJugador2<<" son:: "<<puntosGanador2<<endl<<endl;
 
      cout << "*********************************************"<<endl;
 
@@ -264,12 +264,12 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
     if (puntosGanador1>puntosGanador2){
         cout<<endl<<endl;
         cout<<"---------------------------------------------"<<endl;
-        cout <<" Victoria de: "<<nombreJugador1<<endl;
+        cout <<" Victoria de "<<nombreJugador1<<endl;
     }
     else {
         cout<<endl<<endl;
         cout<<"---------------------------------------------"<<endl;
-        cout<<" Victoria de: "<<nombreJugador2<<endl;
+        cout<<" Victoria de "<<nombreJugador2<<endl;
     }
 
     }
