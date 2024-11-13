@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1731513231 source:c:\users\user\downloads\g r e e d 12131\funciones.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"rlutil.h"
+	"funciones.h"
+
+1731507303 c:\users\user\downloads\g r e e d 12131\rlutil.h
+
+1731512595 c:\users\user\downloads\g r e e d 12131\funciones.h
+	<string>
+
+1731512730 source:c:\users\user\downloads\g r e e d 12131\modomultijugador.cpp
+	<iostream>
+	"funciones.h"
+	<fstream>
+	<time.h>
+
+1731512912 source:c:\users\user\downloads\g r e e d 12131\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"funciones.h"
+
