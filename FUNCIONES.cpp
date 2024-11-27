@@ -368,10 +368,10 @@ void multiplayer (string nombreJugador){
     int puntajeTotal1=0;
     int tiradatotal1=0;
     int tiradatotal2=0;
+    string nombreatraer;
+    string nombreatraer2;
     int puntajeEstadistica1;
     int puntajeEstadistica2;
-
-
 
 
 
@@ -464,6 +464,7 @@ int tiradaPlayer1(int bloqueador1, int bloqueador2, string nombreJugador1){
                 tiradaRonda++;
                 tiradatotal1++;
                 system("cls");
+                 nombreatraer=nombreJugador1;
 
 
      }
@@ -571,6 +572,7 @@ int tiradaPlayer2 (int bloqueador2_1, int bloqueador2_2,string nombreJugador2){
                 tiradaRonda++;
                 tiradatotal2++;
                 system("cls");
+                 nombreatraer2=nombreJugador2;
 
 
      }
@@ -696,12 +698,12 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
 
 
     void estadisticaMultiplayer (){
-    cout<<"Jugador 1"<<endl;
+    cout<<"Jugador :"<<nombreatraer<<endl;
      cout<<"Tus puntos fueron "<<puntajeEstadistica1<<" Felicitaciones!!!"<<endl<<endl;
      cout<<"En Tiradas "<<tiradatotal1<<endl<<endl<<endl;
 
 
-     cout<<"Jugador 2"<<endl;
+     cout<<"Jugador :"<<nombreatraer2<<endl;
      cout<<"Tus puntos fueron "<<puntajeEstadistica2<< " Felicitaciones!!!"<<endl<<endl;
      cout<<"En Tiradas "<<tiradatotal2<<endl;
      system("pause");
