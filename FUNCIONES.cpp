@@ -368,6 +368,9 @@ void multiplayer (string nombreJugador){
     int puntajeTotal1=0;
     int tiradatotal1=0;
     int tiradatotal2=0;
+    int puntajeEstadistica1;
+    int puntajeEstadistica2;
+
 
 
 
@@ -466,7 +469,8 @@ int tiradaPlayer1(int bloqueador1, int bloqueador2, string nombreJugador1){
      }
                     sumarRondas=puntajeRonda;
                     puntajeTotal1= puntajeTotal1+sumarRondas;
-                    cout<<"PUNTAJE TOTAL ACUMULADO= "<<puntajeTotal1<<endl;
+                    puntajeEstadistica1=puntajeTotal1;
+                     cout<<"PUNTAJE TOTAL ACUMULADO= "<<puntajeTotal1<<endl;
 
                    return puntajeTotal1;
 
@@ -572,6 +576,7 @@ int tiradaPlayer2 (int bloqueador2_1, int bloqueador2_2,string nombreJugador2){
      }
                     sumarRondas=puntajeRonda2;
                     puntajeTotal2= puntajeTotal2+sumarRondas;
+                    puntajeEstadistica2=puntajeTotal2;
                     cout<<"PUNTAJE TOTAL ACUMULADO= "<<puntajeTotal2<<endl;
 
 
