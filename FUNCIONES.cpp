@@ -697,13 +697,13 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
 
     void estadisticaMultiplayer (){
     cout<<"Jugador 1"<<endl;
-     ///cout<<"Tus puntos fueron "<<puntajeTotal1<<" Felicitaciones!!!"<<endl;
-     cout<<"En total de tiradas "<<tiradatotal1<<endl<<endl<<endl;
+     cout<<"Tus puntos fueron "<<puntajeEstadistica1<<" Felicitaciones!!!"<<endl<<endl;
+     cout<<"En Tiradas "<<tiradatotal1<<endl<<endl<<endl;
 
 
      cout<<"Jugador 2"<<endl;
-     ///cout<<"Tus puntos fueron "<<puntajeTotal2<< " Felicitaciones!!!"<<endl;
-     cout<<"En total de tiradas "<<tiradatotal2<<endl;
+     cout<<"Tus puntos fueron "<<puntajeEstadistica2<< " Felicitaciones!!!"<<endl<<endl;
+     cout<<"En Tiradas "<<tiradatotal2<<endl;
      system("pause");
 
 
