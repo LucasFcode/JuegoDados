@@ -1,4 +1,4 @@
-#include <iostream>
+           #include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <cstdio>
@@ -6,15 +6,6 @@
 
 
 using namespace std;
-
-
-
-#include <iostream>
-#include "funciones.h"
-using namespace std;
-
-
-
 
 ///// MEN├Ü //////
 int seleccionarOpcion() {
@@ -55,31 +46,6 @@ int seleccionarOpcion() {
 
     } while (true);
 }
-
-void ejecutarOpcion(int opcion) {
-    switch (opcion) {
-        case 1:
-            partidaUnJugador();
-            break;
-        case 2:
-            partidaMultiplayer();
-            break;
-        case 3:
-            estadisticaGeneral();
-            break;
-        case 4:
-            creditos();
-            break;
-        case 5:
-            cout << "Gracias por jugar!!!" << endl;
-            break;
-        default:
-            cout << "Elija una opcion valida: " << endl;
-            break;
-    }
-    }
-
-///// FINALIZA MEN├Ü //////
 
 
 ////// MENU ESTADISTICA ////////
@@ -129,6 +95,38 @@ void estadisticaGeneral() {
 
 
 
+void ejecutarOpcion(int opcion) {
+    switch (opcion) {
+        case 1:
+            partidaUnJugador();
+            break;
+        case 2:
+            partidaMultiplayer();
+            break;
+        case 3:
+            estadisticaGeneral();
+            break;
+        case 4:
+            creditos();
+            break;
+        case 5:
+            cout << "Gracias por jugar!!!" << endl;
+            break;
+        default:
+            cout << "Elija una opcion valida: " << endl;
+            break;
+    }
+    }
+
+///// FINALIZA MEN├Ü //////
+
+
+
+
+
+
+
+
 // funcion para tirar los dados
 
 
@@ -159,8 +157,11 @@ bool dadosIguales(int valorDados[], int numDados) { // FUNCI├ôN PARA LOS DADO
 
 
 
+
+
+    int puntajeEst_UnJugador=0;
+    int estadisticaTirada=0;
     int puntajeTotalJugador=0;
-    int tiradatotal=0;
 
 
 
@@ -175,12 +176,14 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
         int mostrarbloqueradores=bloqueador1;
         int mostrarbloqueradores22=bloqueador2;
         int i,respuesta,j;
-        int sumarRondas;
         bool sigue=true;
         int dadosXJugar=5;
         int  dadospBloquear=0;
-        int puntajeRonda=0;
         int tiradaRonda=0;
+        int tiradatotal=0;
+        int puntajeRonda=0;
+
+
 
 
 
@@ -190,11 +193,10 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
     while (dadosXJugar>0 && sigue==true) {
 
 
-
-
-
-     int dadospBloquear=0;
      int puntajeTirada=0;
+     int dadospBloquear=0;
+
+
 
 
 
@@ -231,6 +233,7 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
                   dadosXJugar = dadosXJugar-dadospBloquear;
                   puntajeRonda=puntajeRonda+puntajeTirada;
 
+
                 cout<<"DADOS QUE TE QUEDAN: " <<dadosXJugar<<endl;
                 cout<<"EL PUNTAJE DE LA TIRADA ES :  "<<puntajeTirada<<endl;
                 cout<<"EL PUNTAJE DE LA RONDA ES: "<<puntajeRonda<<endl;
@@ -256,13 +259,20 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
 
                     }
 
+
+
                 tiradaRonda++;
                 tiradatotal++;
                 system("cls");
 
+
+
+
      }
-                    sumarRondas=puntajeRonda;
-                    puntajeTotalJugador= puntajeTotalJugador+sumarRondas;
+
+                      puntajeTotalJugador= puntajeTotalJugador+puntajeRonda;
+                    puntajeEst_UnJugador=puntajeTotalJugador;
+                    estadisticaTirada=tiradatotal;
                     cout<<"PUNTAJE TOTAL ACUMULADO DE RONDAS= "<<puntajeTotalJugador<<endl;
 
                    return puntajeTotalJugador;
@@ -277,8 +287,8 @@ int tiradaUnJugador(int bloqueador1, int bloqueador2){
      void estadisticaunJugador (){
 
 
-     cout<<"Tus puntos fueron "<<puntajeTotalJugador<<"  Felicitaciones!!!"<<endl;
-     cout<<"En total de tiradas "<<tiradatotal<<endl;
+     cout<<"Tus puntos fueron "<<puntajeEst_UnJugador<<"  Felicitaciones!!!"<<endl;
+     cout<<"En total de tiradas "<<estadisticaTirada<<endl;
      system("pause");
 
 
@@ -313,6 +323,7 @@ void modo_unjugador (string nombreJugador){
 
     cout <<"Indicanos tu nombre Player1: "<<endl;
     cin >> nombreJugador;
+
 
 
     modo_unjugador(nombreJugador);
@@ -359,13 +370,19 @@ for (int i = 0; i < rondas; i++) {
 system("pause");
     }
 
+///hacer una función que reciba un array por parametro y que retorne la cantidad de numeros impares que tiene
+
+
+
+
+
 ///FUNCION PARA SALUDAR A CADA MULTIPLAYER
 void multiplayer (string nombreJugador){
     saludar(nombreJugador);}
 
 
-    int puntajeTotal2=0;
-    int puntajeTotal1=0;
+
+
     int tiradatotal1=0;
     int tiradatotal2=0;
     string nombreatraer;
@@ -375,10 +392,12 @@ void multiplayer (string nombreJugador){
 
 
 
+
 /// FUNCION PARA tiraR primer jugador
+
 int tiradaPlayer1(int bloqueador1, int bloqueador2, string nombreJugador1){
 
-
+         int puntajeTotal1=0;
         int mostrarbloquerador1=bloqueador1;
         int mostrarbloquerador1_1=bloqueador2;
         int i,respuesta,j;
@@ -464,14 +483,15 @@ int tiradaPlayer1(int bloqueador1, int bloqueador2, string nombreJugador1){
                 tiradaRonda++;
                 tiradatotal1++;
                 system("cls");
-                 nombreatraer=nombreJugador1;
+                nombreatraer=nombreJugador1;
+
 
 
      }
                     sumarRondas=puntajeRonda;
                     puntajeTotal1= puntajeTotal1+sumarRondas;
                     puntajeEstadistica1=puntajeTotal1;
-                     cout<<"PUNTAJE TOTAL ACUMULADO= "<<puntajeTotal1<<endl;
+                    cout<<"PUNTAJE TOTAL ACUMULADO= "<<puntajeTotal1<<endl;
 
                    return puntajeTotal1;
 
@@ -491,7 +511,7 @@ int tiradaPlayer1(int bloqueador1, int bloqueador2, string nombreJugador1){
 int tiradaPlayer2 (int bloqueador2_1, int bloqueador2_2,string nombreJugador2){
 
 
-
+         int puntajeTotal2=0;
         int mostrarbloquerador2=bloqueador2_1;
         int mostrarbloquerador2_1=bloqueador2_2;
             int respuesta;
@@ -572,7 +592,7 @@ int tiradaPlayer2 (int bloqueador2_1, int bloqueador2_2,string nombreJugador2){
                 tiradaRonda++;
                 tiradatotal2++;
                 system("cls");
-                 nombreatraer2=nombreJugador2;
+                nombreatraer2=nombreJugador2;
 
 
      }
@@ -606,6 +626,8 @@ void partidaMultiplayer(){
 
     cout <<"Indicanos tu nombre Player1: "<<endl;
     cin >> nombreJugador1;
+
+
 
 
 multiplayer(nombreJugador1);
@@ -684,6 +706,8 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
     }
 
 
+
+
     void creditos (){
 
       cout<<endl;
@@ -698,12 +722,12 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
 
 
     void estadisticaMultiplayer (){
-    cout<<"Jugador :"<<nombreatraer<<endl;
+    cout<<"Jugador 1 "<<nombreatraer<<endl;
      cout<<"Tus puntos fueron "<<puntajeEstadistica1<<" Felicitaciones!!!"<<endl<<endl;
      cout<<"En Tiradas "<<tiradatotal1<<endl<<endl<<endl;
 
 
-     cout<<"Jugador :"<<nombreatraer2<<endl;
+     cout<<"Jugador 2"<< nombreatraer2<<endl;
      cout<<"Tus puntos fueron "<<puntajeEstadistica2<< " Felicitaciones!!!"<<endl<<endl;
      cout<<"En Tiradas "<<tiradatotal2<<endl;
      system("pause");
@@ -711,7 +735,4 @@ int bloqueador1, bloqueador2, bloqueador2_1, bloqueador2_2;
 
 
 }
-
-
-
-
+    
